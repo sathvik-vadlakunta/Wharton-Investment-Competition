@@ -62,18 +62,182 @@ tbody td{padding:11px 14px;vertical-align:middle}
 .meta-row{display:flex;justify-content:space-between;padding:7px 10px;background:#0f1117;border-radius:6px;font-size:13px}
 .meta-row span:first-child{color:#8b949e}
 .meta-row span:last-child{color:#e1e4e8;font-weight:500}
+/* ── DEADLINES ── */
+.deadline-bar{display:flex;gap:10px;align-items:center}
+.deadline-chip{font-size:11px;color:#8b949e;background:#21262d;padding:4px 10px;border-radius:6px;white-space:nowrap}
+.deadline-chip strong{color:#f0883e}
+/* ── SCREENER ── */
+.screener-layout{display:grid;grid-template-columns:264px 1fr;gap:18px;align-items:start}
+.sc-sidebar{background:#161b22;border:1px solid #30363d;border-radius:10px;padding:18px;position:sticky;top:20px}
+.sb-section{margin-bottom:18px}
+.sb-heading{font-size:10px;font-weight:700;color:#8b949e;text-transform:uppercase;letter-spacing:.7px;margin-bottom:10px}
+.profile-btns{display:flex;gap:5px}
+.profile-btn{flex:1;padding:6px 4px;border:1px solid #30363d;border-radius:6px;background:none;color:#8b949e;font-size:12px;font-weight:500;cursor:pointer;text-align:center;transition:all .15s}
+.profile-btn.active{background:rgba(31,111,235,.15);border-color:#1f6feb;color:#58a6ff}
+.wt-row{margin-bottom:12px}
+.wt-label{display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px}
+.wt-name{color:#8b949e}.wt-val{color:#f0f6fc;font-weight:700;font-family:monospace;font-size:11px}
+.wt-sub{font-size:10px;color:#484f58;margin-bottom:4px}
+input[type=range]{width:100%;height:4px;-webkit-appearance:none;appearance:none;background:#30363d;border-radius:2px;outline:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:#1f6feb;cursor:pointer}
+.wt-total-row{display:flex;justify-content:space-between;padding-top:10px;border-top:1px solid #21262d;font-size:12px}
+.wt-ok{color:#3fb950;font-weight:700}.wt-warn{color:#f85149;font-weight:700}
+.rank-btn{width:100%;padding:9px;background:#1f6feb;border:none;border-radius:7px;color:#fff;font-size:13px;font-weight:600;cursor:pointer;margin-top:10px}
+.rank-btn:hover{background:#388bfd}
+.rank-btn:disabled{background:#30363d;color:#484f58;cursor:not-allowed}
+.sc-controls{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap;align-items:center}
+.sc-controls .search-wrap{flex:1;min-width:180px}
+.sc-status{font-size:12px;color:#484f58;padding:4px 0 12px}
+.sc-status span{color:#58a6ff}
+.sector-group{margin-bottom:22px}
+.sector-group-hdr{display:flex;align-items:center;gap:10px;padding:5px 0 7px;border-bottom:1px solid #30363d;margin-bottom:1px}
+.sector-group-name{font-size:11px;font-weight:700;color:#8b949e;text-transform:uppercase;letter-spacing:.6px}
+.sector-group-count{font-size:11px;color:#484f58}
+.sector-ranked-badge{font-size:10px;color:#3fb950;background:rgba(63,185,80,.1);border:1px solid rgba(63,185,80,.2);padding:2px 7px;border-radius:10px;margin-left:auto}
+.sc-table{width:100%;border-collapse:collapse;font-size:13px}
+.sc-table th{text-align:left;padding:6px 10px;color:#484f58;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.4px}
+.sc-table td{padding:7px 10px;border-bottom:1px solid #1a1f26;vertical-align:middle}
+.sc-table .stock-row:hover td{background:#161b22}
+.score-cell{display:flex;align-items:center;gap:7px;min-width:110px}
+.score-bar-bg{flex:1;height:6px;background:#21262d;border-radius:3px;overflow:hidden}
+.score-bar-fg{height:100%;border-radius:3px;transition:width .4s}
+.score-num{font-family:monospace;font-size:12px;font-weight:700;min-width:26px;text-align:right}
+.score-green{color:#3fb950}.score-yellow{color:#d29922}.score-red{color:#f85149}.score-na{color:#484f58}
+.factor-chips{display:flex;gap:3px;flex-wrap:wrap}
+.fchip{font-size:9px;padding:2px 5px;border-radius:8px;font-weight:500;border:1px solid}
+.fchip-auto{background:rgba(88,166,255,.08);border-color:rgba(88,166,255,.25);color:#58a6ff}
+.fchip-manual{background:rgba(63,185,80,.08);border-color:rgba(63,185,80,.25);color:#3fb950}
+.fchip-empty{background:#1a1f26;border-color:#21262d;color:#484f58}
+.rank-badge{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;font-size:10px;font-weight:700}
+.rank-1{background:rgba(212,183,23,.2);color:#d4b017}
+.rank-2{background:rgba(140,140,140,.15);color:#8b949e}
+.rank-3{background:rgba(180,100,50,.15);color:#b86a32}
+.rank-n{background:#1a1f26;color:#484f58}
+.expand-toggle{background:none;border:1px solid #30363d;color:#8b949e;cursor:pointer;font-size:11px;padding:3px 8px;border-radius:4px}
+.expand-toggle:hover{background:#21262d;color:#e1e4e8}
+.add-port-btn{padding:3px 9px;border:none;border-radius:5px;font-size:11px;cursor:pointer;font-weight:500;white-space:nowrap}
+.add-port-btn.not-added{background:#238636;color:#fff}
+.add-port-btn.not-added:hover{background:#2ea043}
+.add-port-btn.is-added{background:rgba(63,185,80,.1);color:#3fb950;border:1px solid rgba(63,185,80,.3);cursor:default}
+.metrics-expand{background:#0d1117;padding:14px;border-top:1px solid #21262d}
+.mf-section-label{font-size:10px;font-weight:700;color:#484f58;text-transform:uppercase;letter-spacing:.5px;margin:8px 0 5px}
+.mf-section-label:first-child{margin-top:0}
+.metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:8px}
+.mf-label{font-size:10px;color:#8b949e;margin-bottom:3px;display:flex;align-items:center;gap:4px}
+.mf-auto-tag{font-size:9px;color:#58a6ff;background:rgba(88,166,255,.1);padding:1px 4px;border-radius:3px}
+.mf-input{width:100%;padding:5px 8px;background:#161b22;border:1px solid #30363d;border-radius:5px;color:#e1e4e8;font-size:12px;outline:none;font-family:inherit}
+.mf-input:focus{border-color:#1f6feb}
+.mf-input:disabled{background:#0f1117;color:#58a6ff;border-color:#1f3a5a}
+.mf-save-btn{padding:5px 12px;background:#238636;border:none;border-radius:5px;color:#fff;font-size:11px;cursor:pointer;font-weight:600}
+.mf-save-btn:hover{background:#2ea043}
+/* ── PORTFOLIO ── */
+.portfolio-layout{display:grid;grid-template-columns:1fr 316px;gap:18px;align-items:start}
+.p-card{background:#161b22;border:1px solid #30363d;border-radius:10px;padding:18px;margin-bottom:14px}
+.p-card h3{font-size:13px;font-weight:600;color:#f0f6fc;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between}
+.p-card h3 .h3-sub{font-size:11px;color:#8b949e;font-weight:400}
+.ips-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ips-field label{display:block;font-size:10px;color:#8b949e;text-transform:uppercase;letter-spacing:.3px;margin-bottom:3px}
+.ips-field select,.ips-field input[type=text],.ips-field textarea{width:100%;padding:6px 9px;background:#0f1117;border:1px solid #30363d;border-radius:6px;color:#e1e4e8;font-size:12px;outline:none;font-family:inherit}
+.ips-field select:focus,.ips-field input[type=text]:focus,.ips-field textarea:focus{border-color:#1f6feb}
+.ips-field textarea{resize:vertical;min-height:52px}
+.ips-field.full{grid-column:1 / -1}
+.ips-save{padding:7px 16px;background:#1f6feb;border:none;border-radius:6px;color:#fff;font-size:12px;font-weight:600;cursor:pointer;margin-top:10px}
+.ips-save:hover{background:#388bfd}
+.alloc-wrap{display:flex;align-items:center;gap:20px}
+.alloc-canvas-wrap{width:130px;height:130px;flex-shrink:0;position:relative}
+.alloc-center-text{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none}
+.alloc-center-label{font-size:10px;color:#8b949e}
+.alloc-center-val{font-size:16px;font-weight:700;color:#f0f6fc;font-family:monospace}
+.alloc-legend{flex:1}
+.alloc-row{display:flex;align-items:center;justify-content:space-between;padding:5px 0;border-bottom:1px solid #1a1f26}
+.alloc-row:last-child{border-bottom:none}
+.alloc-dot-label{display:flex;align-items:center;gap:7px;font-size:12px;color:#8b949e}
+.alloc-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.alloc-pct{font-family:monospace;font-size:12px;font-weight:700;color:#f0f6fc}
+.alloc-dollar{font-size:10px;color:#484f58;font-family:monospace}
+.port-total-bar{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:#0f1117;border-radius:7px;margin-bottom:14px}
+.port-total-label{font-size:13px;color:#8b949e}
+.port-total-val{font-family:monospace;font-weight:700;color:#f0f6fc;font-size:15px}
+.port-total-pct{font-family:monospace;font-size:11px}
+.port-total-ok{color:#3fb950}.port-total-warn{color:#f0883e}.port-total-over{color:#f85149}
+.sleeve{margin-bottom:16px}
+.sleeve-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.sleeve-name{font-size:11px;font-weight:700;color:#8b949e;text-transform:uppercase;letter-spacing:.5px;display:flex;align-items:center;gap:6px}
+.sleeve-dot{width:8px;height:8px;border-radius:50%}
+.sleeve-pct{font-size:11px;color:#8b949e;font-family:monospace}
+.holding-row{display:flex;align-items:center;gap:8px;padding:7px 10px;background:#0f1117;border-radius:6px;margin-bottom:4px}
+.h-ticker{font-family:monospace;font-weight:700;color:#58a6ff;font-size:13px;min-width:52px}
+.h-name{font-size:11px;color:#8b949e;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.h-weight-input{width:52px;padding:3px 6px;background:#161b22;border:1px solid #30363d;border-radius:5px;color:#e1e4e8;font-size:12px;font-family:monospace;text-align:right;outline:none}
+.h-weight-input:focus{border-color:#1f6feb}
+.h-pct{font-size:10px;color:#484f58}
+.h-dollar{font-size:10px;color:#484f58;font-family:monospace;min-width:64px;text-align:right}
+.h-remove{background:none;border:none;color:#30363d;cursor:pointer;font-size:16px;padding:0 2px;line-height:1}
+.h-remove:hover{color:#f85149}
+.add-holding-form{display:flex;gap:8px;margin-top:6px}
+.add-holding-form select{flex:1;font-size:12px;padding:6px 8px;background:#0f1117;border:1px solid #30363d;border-radius:6px;color:#e1e4e8;outline:none}
+.add-h-btn{padding:6px 12px;background:#238636;border:none;border-radius:6px;color:#fff;font-size:12px;cursor:pointer;white-space:nowrap}
+.add-h-btn:hover{background:#2ea043}
+.risk-row{display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-bottom:1px solid #21262d;font-size:12px}
+.risk-row:last-child{border-bottom:none}
+.risk-label{color:#8b949e}
+.risk-val{font-family:monospace;font-weight:600}
+.risk-ok{color:#3fb950}.risk-warn{color:#f0883e}.risk-fail{color:#f85149}
+.sb-row{margin-bottom:8px}
+.sb-label{display:flex;justify-content:space-between;font-size:10px;color:#8b949e;margin-bottom:3px}
+.sb-bar-bg{height:6px;background:#21262d;border-radius:3px;position:relative;overflow:visible}
+.sb-bar-fg{height:100%;border-radius:3px}
+.sb-cap-line{position:absolute;top:-2px;bottom:-2px;width:2px;border-radius:1px;background:#f85149;opacity:.5}
+.tl-controls{display:flex;gap:8px;margin-bottom:10px}
+.tl-add-form{background:#0d1117;border:1px solid #21262d;border-radius:8px;padding:14px;margin-bottom:14px;display:none}
+.tl-add-form.open{display:block}
+.tl-grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:8px}
+.tl-grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.ff label{display:block;font-size:10px;color:#8b949e;margin-bottom:3px;text-transform:uppercase;letter-spacing:.2px}
+.ff input,.ff select,.ff textarea{width:100%;padding:6px 8px;background:#161b22;border:1px solid #30363d;border-radius:5px;color:#e1e4e8;font-size:12px;outline:none;font-family:inherit}
+.ff input:focus,.ff select:focus,.ff textarea:focus{border-color:#1f6feb}
+.ff textarea{min-height:48px;resize:vertical}
+.tl-submit-btn{padding:6px 14px;background:#238636;border:none;border-radius:6px;color:#fff;font-size:12px;font-weight:600;cursor:pointer}
+.tl-cancel-btn{padding:6px 14px;background:none;border:1px solid #30363d;border-radius:6px;color:#8b949e;font-size:12px;cursor:pointer}
+.tl-table{width:100%;border-collapse:collapse;font-size:12px}
+.tl-table th{text-align:left;padding:7px 10px;color:#484f58;font-size:10px;font-weight:600;text-transform:uppercase;border-bottom:1px solid #21262d}
+.tl-table td{padding:7px 10px;border-bottom:1px solid #1a1f26;vertical-align:top}
+.tl-table tr:hover td{background:#0f1117}
+.tl-action-buy{color:#3fb950;font-weight:700}
+.tl-action-sell{color:#f85149;font-weight:700}
+.tl-action-trim{color:#f0883e;font-weight:700}
+.tl-action-rebalance{color:#58a6ff;font-weight:700}
+.tl-del-btn{background:none;border:none;color:#30363d;cursor:pointer;font-size:16px;padding:0 2px;line-height:1}
+.tl-del-btn:hover{color:#f85149}
+.no-trades{text-align:center;padding:24px;color:#484f58;font-size:12px}
+.btn-sm{padding:5px 12px;border-radius:6px;font-size:12px;cursor:pointer;font-weight:500}
+.btn-primary-sm{background:#1f6feb;border:none;color:#fff}
+.btn-primary-sm:hover{background:#388bfd}
+.btn-ghost-sm{background:none;border:1px solid #30363d;color:#8b949e}
+.btn-ghost-sm:hover{border-color:#8b949e;color:#e1e4e8}
+.alloc-target-range{font-size:11px;color:#484f58;margin-top:6px;line-height:1.7}
+.no-holdings{font-size:12px;color:#484f58;padding:6px 10px;font-style:italic}
 </style>
 </head>
 <body>
 <header>
-  <h1>WGHIC Approved Securities</h1>
-  <p>500 stocks &nbsp;·&nbsp; 100 ETFs &nbsp;·&nbsp; 60 government bonds &nbsp;·&nbsp; Click any row for price history</p>
+  <div>
+    <h1>WGHIC Portfolio Dashboard</h1>
+    <p>500 stocks &nbsp;·&nbsp; 100 ETFs &nbsp;·&nbsp; 60 government bonds &nbsp;·&nbsp; $500,000 virtual portfolio</p>
+  </div>
+  <div class="deadline-bar">
+    <div class="deadline-chip">Trading Notes <strong>Oct 23</strong></div>
+    <div class="deadline-chip">IPS <strong>Nov 6</strong></div>
+    <div class="deadline-chip">Final Report <strong>Dec 4</strong></div>
+  </div>
 </header>
 <div class="main">
   <div class="tabs">
     <button class="tab active" onclick="switchTab('stocks')">Stocks <span id="tc-s"></span></button>
     <button class="tab" onclick="switchTab('etfs')">ETFs <span id="tc-e"></span></button>
     <button class="tab" onclick="switchTab('bonds')">Gov Bonds <span id="tc-b"></span></button>
+    <button class="tab" onclick="switchTab('screener')" style="color:#58a6ff">Screener</button>
+    <button class="tab" onclick="switchTab('portfolio')" style="color:#3fb950">Portfolio</button>
   </div>
   <div id="panel-stocks">
     <div class="controls">
@@ -137,6 +301,272 @@ tbody td{padding:11px 14px;vertical-align:middle}
   </div>
 </div>
 
+<!-- SCREENER -->
+<div id="panel-screener" style="display:none">
+  <div class="screener-layout">
+    <div class="sc-sidebar">
+      <div class="sb-section">
+        <div class="sb-heading">Client Profile Preset</div>
+        <div class="profile-btns">
+          <button class="profile-btn" id="pbtn-growth" onclick="setScoreProfile('growth')">Growth</button>
+          <button class="profile-btn active" id="pbtn-balanced" onclick="setScoreProfile('balanced')">Balanced</button>
+          <button class="profile-btn" id="pbtn-income" onclick="setScoreProfile('income')">Income</button>
+        </div>
+      </div>
+      <div class="sb-section">
+        <div class="sb-heading">Factor Weights</div>
+        <div class="wt-row">
+          <div class="wt-label"><span class="wt-name">Quality</span><span class="wt-val" id="wt-val-quality">30%</span></div>
+          <div class="wt-sub">ROIC · gross margin · debt/EBITDA</div>
+          <input type="range" min="0" max="60" value="30" id="wt-quality" oninput="updateWeightDisplay()">
+        </div>
+        <div class="wt-row">
+          <div class="wt-label"><span class="wt-name">Growth</span><span class="wt-val" id="wt-val-growth">15%</span></div>
+          <div class="wt-sub">3Y revenue growth · EPS growth</div>
+          <input type="range" min="0" max="60" value="15" id="wt-growth" oninput="updateWeightDisplay()">
+        </div>
+        <div class="wt-row">
+          <div class="wt-label"><span class="wt-name">Valuation</span><span class="wt-val" id="wt-val-valuation">25%</span></div>
+          <div class="wt-sub">P/E · EV/EBITDA · FCF yield</div>
+          <input type="range" min="0" max="60" value="25" id="wt-valuation" oninput="updateWeightDisplay()">
+        </div>
+        <div class="wt-row">
+          <div class="wt-label"><span class="wt-name">Momentum</span><span class="wt-val" id="wt-val-momentum">10%</span></div>
+          <div class="wt-sub" style="color:#1f6feb">12M price return — auto ✦</div>
+          <input type="range" min="0" max="60" value="10" id="wt-momentum" oninput="updateWeightDisplay()">
+        </div>
+        <div class="wt-row">
+          <div class="wt-label"><span class="wt-name">Low Risk</span><span class="wt-val" id="wt-val-lowrisk">15%</span></div>
+          <div class="wt-sub" style="color:#1f6feb">Volatility · max drawdown — auto ✦</div>
+          <input type="range" min="0" max="60" value="15" id="wt-lowrisk" oninput="updateWeightDisplay()">
+        </div>
+        <div class="wt-row">
+          <div class="wt-label"><span class="wt-name">Income</span><span class="wt-val" id="wt-val-income">5%</span></div>
+          <div class="wt-sub">Dividend yield · payout ratio</div>
+          <input type="range" min="0" max="60" value="5" id="wt-income" oninput="updateWeightDisplay()">
+        </div>
+        <div class="wt-total-row">
+          <span style="color:#8b949e;font-size:12px">Total (must = 100%)</span>
+          <span id="wt-total" class="wt-ok">100%</span>
+        </div>
+        <p style="font-size:10px;color:#484f58;margin-top:8px">✦ Auto-computed from 2Y price data &nbsp;·&nbsp; Blue chips = manual input</p>
+      </div>
+      <button class="rank-btn" id="rank-btn" onclick="startRankStocks()">Rank All 500 Stocks</button>
+    </div>
+    <div>
+      <div class="sc-controls">
+        <div class="search-wrap">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.099zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
+          <input type="text" id="sc-search" placeholder="Filter by ticker or name..." oninput="filterScreener()">
+        </div>
+        <select id="sc-sector" onchange="filterScreener()">
+          <option value="">All Sectors</option>
+          <option>Communication Services</option><option>Consumer Discretionary</option><option>Consumer Staples</option><option>Energy</option><option>Financials</option><option>Health Care</option><option>Industrials</option><option>Information Technology</option><option>Materials</option><option>Real Estate</option><option>Utilities</option>
+        </select>
+        <select id="sc-top" onchange="filterScreener()">
+          <option value="0">All stocks</option>
+          <option value="3">Top 3 per sector</option>
+          <option value="5" selected>Top 5 per sector</option>
+          <option value="10">Top 10 per sector</option>
+        </select>
+      </div>
+      <div class="sc-status" id="sc-status">Click <strong style="color:#1f6feb">Rank All 500 Stocks</strong> to score and rank the full universe. Momentum &amp; volatility auto-load from price data — enter fundamentals per stock to unlock all 6 factors.</div>
+      <div id="sc-output"></div>
+    </div>
+  </div>
+</div>
+
+<!-- PORTFOLIO -->
+<div id="panel-portfolio" style="display:none">
+  <div class="portfolio-layout">
+    <div>
+      <div class="p-card">
+        <h3>Holdings <span class="h3-sub" id="port-summary-label">$500,000 base</span></h3>
+        <div class="port-total-bar">
+          <span class="port-total-label">Allocated</span>
+          <div style="display:flex;align-items:center;gap:14px">
+            <span class="port-total-val" id="port-total-pct-display">0%</span>
+            <span class="port-total-val" id="port-total-dollar">$0</span>
+            <span class="port-total-pct" id="port-remaining"></span>
+          </div>
+        </div>
+        <div class="sleeve">
+          <div class="sleeve-hdr">
+            <div class="sleeve-name"><div class="sleeve-dot" style="background:#1f6feb"></div>Core ETFs</div>
+            <span class="sleeve-pct" id="sleeve-pct-etf">0%</span>
+          </div>
+          <div id="holdings-etf"></div>
+          <div class="add-holding-form">
+            <select id="add-etf-select"></select>
+            <button class="add-h-btn" onclick="addHolding('etf')">+ Add ETF</button>
+          </div>
+        </div>
+        <div class="sleeve">
+          <div class="sleeve-hdr">
+            <div class="sleeve-name"><div class="sleeve-dot" style="background:#3fb950"></div>Individual Stocks</div>
+            <span class="sleeve-pct" id="sleeve-pct-stock">0%</span>
+          </div>
+          <div id="holdings-stock"></div>
+          <div class="add-holding-form">
+            <select id="add-stock-select"></select>
+            <button class="add-h-btn" onclick="addHolding('stock')">+ Add Stock</button>
+          </div>
+        </div>
+        <div class="sleeve">
+          <div class="sleeve-hdr">
+            <div class="sleeve-name"><div class="sleeve-dot" style="background:#d29922"></div>Treasuries / Bonds</div>
+            <span class="sleeve-pct" id="sleeve-pct-bond">0%</span>
+          </div>
+          <div id="holdings-bond"></div>
+          <div class="add-holding-form">
+            <select id="add-bond-select"></select>
+            <button class="add-h-btn" onclick="addHolding('bond')">+ Add Bond</button>
+          </div>
+        </div>
+        <div class="sleeve">
+          <div class="sleeve-hdr">
+            <div class="sleeve-name"><div class="sleeve-dot" style="background:#484f58"></div>Cash Reserve</div>
+            <span class="sleeve-pct" id="sleeve-pct-cash">2%</span>
+          </div>
+          <div class="holding-row" style="justify-content:space-between">
+            <div style="display:flex;align-items:center;gap:8px">
+              <span class="h-ticker" style="color:#8b949e">CASH</span>
+              <span class="h-name">Cash / Money Market Reserve (rebalancing buffer)</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px">
+              <input type="number" class="h-weight-input" id="cash-weight" value="2" min="0" max="20" step="0.5" oninput="updatePortfolio()">
+              <span class="h-pct">%</span>
+              <span class="h-dollar" id="cash-dollar">$10,000</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-card">
+        <h3>Trade Log <span class="h3-sub">Step 8 — required for Trading Notes Analysis (due Oct 23)</span></h3>
+        <div class="tl-controls">
+          <button class="btn-sm btn-primary-sm" onclick="toggleTradeForm()">+ Log Trade</button>
+          <button class="btn-sm btn-ghost-sm" onclick="exportTradeLog()">Export CSV</button>
+        </div>
+        <div class="tl-add-form" id="tl-form">
+          <div class="tl-grid3">
+            <div class="ff"><label>Date</label><input type="date" id="tl-date"></div>
+            <div class="ff"><label>Ticker</label><input type="text" id="tl-ticker" placeholder="e.g. AAPL" style="text-transform:uppercase"></div>
+            <div class="ff"><label>Action</label><select id="tl-action"><option>BUY</option><option>SELL</option><option>TRIM</option><option>REBALANCE</option></select></div>
+            <div class="ff"><label>Size (shares or $)</label><input type="text" id="tl-size" placeholder="e.g. 50 shares"></div>
+            <div class="ff"><label>Weight After (%)</label><input type="number" id="tl-weight" placeholder="e.g. 4.5" step="0.1"></div>
+            <div class="ff"><label>Rule Triggered</label>
+              <select id="tl-rule">
+                <option>Initial buy — passes Step 3 screening</option>
+                <option>Rebalance — drifted &gt;25% from target</option>
+                <option>Thesis confirmed — catalyst realized</option>
+                <option>Sell — thesis broken (business change)</option>
+                <option>Trim — hit single-stock cap (8%)</option>
+                <option>Trim — hit sector cap (25-30%)</option>
+                <option>Score dropped below 40th percentile</option>
+                <option>Client constraint change</option>
+              </select>
+            </div>
+          </div>
+          <div class="tl-grid2">
+            <div class="ff"><label>Thesis / Reason (3 sentences: what, why now, catalyst)</label><textarea id="tl-thesis" placeholder="e.g. NVDC dominates AI chip supply…"></textarea></div>
+            <div class="ff"><label>How It Serves the Client</label><textarea id="tl-client" placeholder="Links trade to client return objective, risk tolerance…"></textarea></div>
+          </div>
+          <div style="display:flex;gap:8px">
+            <button class="tl-submit-btn" onclick="submitTrade()">Save Trade</button>
+            <button class="tl-cancel-btn" onclick="toggleTradeForm()">Cancel</button>
+          </div>
+        </div>
+        <div id="tl-output"></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="p-card">
+        <h3>Investment Policy Statement <span class="h3-sub">Step 1</span></h3>
+        <div class="ips-grid">
+          <div class="ips-field">
+            <label>Client Profile</label>
+            <select id="ips-profile" onchange="onIPSChange()">
+              <option value="growth">Growth</option>
+              <option value="balanced" selected>Balanced</option>
+              <option value="conservative">Conservative</option>
+            </select>
+          </div>
+          <div class="ips-field">
+            <label>Return Objective</label>
+            <select id="ips-return">
+              <option>Growth</option><option>Income</option><option>Capital Preservation</option><option>Growth + Income</option>
+            </select>
+          </div>
+          <div class="ips-field">
+            <label>Risk Tolerance</label>
+            <select id="ips-risk">
+              <option>High</option><option selected>Moderate</option><option>Low</option>
+            </select>
+          </div>
+          <div class="ips-field">
+            <label>Time Horizon</label>
+            <select id="ips-horizon">
+              <option>Long (&gt;10 years)</option><option selected>Medium (3–10 years)</option><option>Short (&lt;3 years)</option>
+            </select>
+          </div>
+          <div class="ips-field full">
+            <label>Unique Constraints / Exclusions</label>
+            <textarea id="ips-constraints" placeholder="e.g. No tobacco or fossil fuels, ESG preference, home-country bias…"></textarea>
+          </div>
+          <div class="ips-field full">
+            <label>Liquidity Notes</label>
+            <textarea id="ips-liquidity" placeholder="e.g. 5% cash sleeve for short-term need by Jan 2027…"></textarea>
+          </div>
+        </div>
+        <button class="ips-save" onclick="saveIPS()">Save IPS</button>
+      </div>
+
+      <div class="p-card">
+        <h3>Asset Allocation <span class="h3-sub">Step 2 — $500,000</span></h3>
+        <div class="alloc-wrap">
+          <div class="alloc-canvas-wrap">
+            <canvas id="alloc-chart" width="130" height="130"></canvas>
+            <div class="alloc-center-text">
+              <div class="alloc-center-label">Invested</div>
+              <div class="alloc-center-val" id="alloc-center-pct">0%</div>
+            </div>
+          </div>
+          <div class="alloc-legend">
+            <div class="alloc-row">
+              <div class="alloc-dot-label"><div class="alloc-dot" style="background:#1f6feb"></div>Core ETFs</div>
+              <div><span class="alloc-pct" id="al-etf-pct">0%</span> <span class="alloc-dollar" id="al-etf-dollar"></span></div>
+            </div>
+            <div class="alloc-row">
+              <div class="alloc-dot-label"><div class="alloc-dot" style="background:#3fb950"></div>Stocks</div>
+              <div><span class="alloc-pct" id="al-stock-pct">0%</span> <span class="alloc-dollar" id="al-stock-dollar"></span></div>
+            </div>
+            <div class="alloc-row">
+              <div class="alloc-dot-label"><div class="alloc-dot" style="background:#d29922"></div>Bonds</div>
+              <div><span class="alloc-pct" id="al-bond-pct">0%</span> <span class="alloc-dollar" id="al-bond-dollar"></span></div>
+            </div>
+            <div class="alloc-row">
+              <div class="alloc-dot-label"><div class="alloc-dot" style="background:#484f58"></div>Cash</div>
+              <div><span class="alloc-pct" id="al-cash-pct">0%</span> <span class="alloc-dollar" id="al-cash-dollar"></span></div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:10px;padding-top:10px;border-top:1px solid #21262d">
+          <div class="sb-heading" style="margin-bottom:4px">Target Range by Profile</div>
+          <div class="alloc-target-range" id="alloc-target-range"></div>
+        </div>
+      </div>
+
+      <div class="p-card">
+        <h3>Risk Checks <span class="h3-sub">Step 7</span></h3>
+        <div id="risk-checks"></div>
+        <div id="sector-bars" style="margin-top:14px"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- MODAL -->
 <div class="overlay" id="overlay">
   <div class="modal" id="modal">
@@ -181,13 +611,15 @@ let currentRange = 365;
 // ── Tab ──────────────────────────────────────────────────────────────────────
 function switchTab(t) {
   activeTab = t;
-  ['stocks','etfs','bonds'].forEach((x,i) => {
+  ['stocks','etfs','bonds','screener','portfolio'].forEach((x,i) => {
     document.getElementById('panel-'+x).style.display = x===t?'':'none';
     document.querySelectorAll('.tab')[i].classList.toggle('active', x===t);
   });
   if(t==='stocks') renderStocks();
   else if(t==='etfs') renderETFs();
-  else renderBonds();
+  else if(t==='bonds') renderBonds();
+  else if(t==='screener') { updateWeightDisplay(); }
+  else if(t==='portfolio') { initPortfolioSelects(); initIPS(); updatePortfolio(); renderTradeLog(); }
 }
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
@@ -446,10 +878,614 @@ function closeModal(){
   allPrices=[];
 }
 
+// ── SCREENER ─────────────────────────────────────────────────────────────────
+const PROFILES = {
+  growth:   {quality:25,growth:30,valuation:15,momentum:20,lowrisk:10,income:0},
+  balanced: {quality:30,growth:15,valuation:25,momentum:10,lowrisk:15,income:5},
+  income:   {quality:25,growth:5, valuation:20,momentum:5, lowrisk:20,income:25}
+};
+const FACTORS = ['quality','growth','valuation','momentum','lowrisk','income'];
+let scoreProfile = 'balanced';
+let scoreWeights = {...PROFILES.balanced};
+let priceCache = {};
+let metricCache = {};
+let screenerResults = {};
+let screenerRanked = false;
+let screenerLoading = false;
+let manualMetrics = JSON.parse(localStorage.getItem('wgMetrics')||'{}');
+
+function saveManualMetrics(){ localStorage.setItem('wgMetrics', JSON.stringify(manualMetrics)); }
+
+function setScoreProfile(p){
+  scoreProfile = p;
+  FACTORS.forEach(f => { const el=document.getElementById('wt-'+f); if(el) el.value=PROFILES[p][f]; });
+  ['growth','balanced','income'].forEach(x=>{
+    const b=document.getElementById('pbtn-'+x); if(b) b.classList.toggle('active',x===p);
+  });
+  updateWeightDisplay();
+}
+
+function updateWeightDisplay(){
+  let total=0;
+  FACTORS.forEach(f=>{
+    const v=parseInt(document.getElementById('wt-'+f)?.value||0);
+    const vEl=document.getElementById('wt-val-'+f); if(vEl) vEl.textContent=v+'%';
+    scoreWeights[f]=v; total+=v;
+  });
+  const el=document.getElementById('wt-total');
+  if(el){ el.textContent=total+'%'; el.className=total===100?'wt-ok':'wt-warn'; }
+}
+
+async function loadPricesFor(ticker){
+  if(priceCache[ticker]!==undefined) return priceCache[ticker];
+  try{
+    const r=await fetch('data/prices/'+ticker+'.json');
+    if(!r.ok){priceCache[ticker]=null;return null;}
+    const d=await r.json();
+    priceCache[ticker]=Array.isArray(d)?d:null;
+    return priceCache[ticker];
+  }catch{priceCache[ticker]=null;return null;}
+}
+
+function computeAutoMetrics(prices){
+  if(!prices||prices.length<30) return null;
+  const n=prices.length;
+  const y1=prices.slice(Math.max(0,n-252));
+  const closes=y1.map(p=>p.c).filter(c=>c>0);
+  if(closes.length<20) return null;
+  // Annualized volatility
+  const rets=[];
+  for(let i=1;i<closes.length;i++) rets.push(Math.log(closes[i]/closes[i-1]));
+  const mean=rets.reduce((a,b)=>a+b,0)/rets.length;
+  const variance=rets.reduce((a,b)=>a+(b-mean)**2,0)/rets.length;
+  const vol=Math.sqrt(variance*252);
+  // Momentum: 12M skipping last month
+  const iStart=Math.max(0,n-252), iEnd=Math.max(0,n-22);
+  const mom=prices[iEnd]&&prices[iStart]?(prices[iEnd].c/prices[iStart].c)-1:null;
+  // Max drawdown 1Y
+  let peak=-Infinity,maxDD=0;
+  for(const c of closes){ if(c>peak)peak=c; const dd=(peak-c)/peak; if(dd>maxDD)maxDD=dd; }
+  // 1Y return
+  const ret1y=closes.length>=2?(closes[closes.length-1]/closes[0])-1:null;
+  return {vol,mom,maxDD,ret1y};
+}
+
+function pctRank(arr,idx,invert=false){
+  const val=arr[idx];
+  if(val===null||val===undefined||isNaN(val)) return null;
+  const avail=arr.filter(v=>v!==null&&v!==undefined&&!isNaN(v)&&isFinite(v));
+  if(avail.length<2) return 50;
+  let rank=0; for(const v of avail){ if(invert?v>val:v<val) rank++; }
+  return Math.round((rank/(avail.length-1))*100);
+}
+
+function wAvg(arr){ const v=arr.filter(x=>x!==null&&x!==undefined); return v.length?Math.round(v.reduce((a,b)=>a+b,0)/v.length):null; }
+
+async function rankSector(sector, stocks){
+  for(const s of stocks){
+    if(metricCache[s.ticker]===undefined){
+      const p=await loadPricesFor(s.ticker);
+      metricCache[s.ticker]=p?computeAutoMetrics(p):null;
+    }
+  }
+  const M=manualMetrics;
+  const fd={
+    mom: stocks.map(s=>metricCache[s.ticker]?.mom??null),
+    vol: stocks.map(s=>metricCache[s.ticker]?.vol??null),
+    dd:  stocks.map(s=>metricCache[s.ticker]?.maxDD??null),
+    roic:    stocks.map(s=>M[s.ticker]?.roic??null),
+    gm:      stocks.map(s=>M[s.ticker]?.gm??null),
+    debt:    stocks.map(s=>M[s.ticker]?.debtEbitda??null),
+    revG:    stocks.map(s=>M[s.ticker]?.revGrowth??null),
+    epsG:    stocks.map(s=>M[s.ticker]?.epsGrowth??null),
+    pe:      stocks.map(s=>M[s.ticker]?.pe??null),
+    ev:      stocks.map(s=>M[s.ticker]?.evEbitda??null),
+    fcf:     stocks.map(s=>M[s.ticker]?.fcfYield??null),
+    div:     stocks.map(s=>M[s.ticker]?.divYield??null),
+    payout:  stocks.map(s=>M[s.ticker]?.payoutRatio??null),
+  };
+  return stocks.map((s,i)=>{
+    const mom_p=pctRank(fd.mom,i);
+    const vol_p=pctRank(fd.vol,i,true);
+    const dd_p=pctRank(fd.dd,i,true);
+    const lowrisk_p=wAvg([vol_p,dd_p]);
+    const q_p=wAvg([pctRank(fd.roic,i),pctRank(fd.gm,i),pctRank(fd.debt,i,true)]);
+    const g_p=wAvg([pctRank(fd.revG,i),pctRank(fd.epsG,i)]);
+    const v_p=wAvg([pctRank(fd.pe,i,true),pctRank(fd.ev,i,true),pctRank(fd.fcf,i)]);
+    const inc_p=wAvg([pctRank(fd.div,i),pctRank(fd.payout,i,true)]);
+    const fs={quality:q_p,growth:g_p,valuation:v_p,momentum:mom_p,lowrisk:lowrisk_p,income:inc_p};
+    let tw=0,ts=0;
+    FACTORS.forEach(f=>{ if(fs[f]!==null){ tw+=scoreWeights[f]; ts+=scoreWeights[f]*fs[f]; }});
+    const score=tw>0?Math.round(ts/tw):null;
+    return{...s,score,factorScores:fs,auto:metricCache[s.ticker],man:M[s.ticker]||{}};
+  }).sort((a,b)=>{
+    if(a.score===null&&b.score===null) return 0;
+    if(a.score===null) return 1; if(b.score===null) return -1;
+    return b.score-a.score;
+  }).map((r,i)=>({...r,rank:i+1}));
+}
+
+async function startRankStocks(){
+  if(screenerLoading) return;
+  const btn=document.getElementById('rank-btn');
+  if(btn){btn.disabled=true;btn.textContent='Ranking...';}
+  screenerLoading=true; screenerRanked=false;
+  const bySector={};
+  for(const s of DATA.stocks){ if(!bySector[s.sector]) bySector[s.sector]=[]; bySector[s.sector].push(s); }
+  const sectors=Object.keys(bySector).sort();
+  const statusEl=document.getElementById('sc-status');
+  for(const sector of sectors){
+    if(statusEl) statusEl.innerHTML=`<span style="color:#f0883e">Loading price data: ${sector}…</span>`;
+    screenerResults[sector]=await rankSector(sector,bySector[sector]);
+  }
+  screenerRanked=true; screenerLoading=false;
+  if(btn){btn.disabled=false;btn.textContent='Re-Rank';}
+  filterScreener();
+}
+
+function filterScreener(){
+  if(!screenerRanked){
+    document.getElementById('sc-status').innerHTML='Click <strong style="color:#1f6feb">Rank All 500 Stocks</strong> to score and rank the full universe.';
+    return;
+  }
+  const q=(document.getElementById('sc-search')?.value||'').toLowerCase();
+  const sf=document.getElementById('sc-sector')?.value||'';
+  const topN=parseInt(document.getElementById('sc-top')?.value||0);
+  const out=document.getElementById('sc-output');
+  if(!out) return;
+  out.innerHTML=''; let shown=0;
+  const sectors=Object.keys(screenerResults).sort();
+  for(const sector of sectors){
+    if(sf&&sector!==sf) continue;
+    let stocks=screenerResults[sector];
+    if(topN>0) stocks=stocks.slice(0,topN);
+    if(q) stocks=stocks.filter(s=>s.ticker.toLowerCase().includes(q)||s.name.toLowerCase().includes(q));
+    if(!stocks.length) continue;
+    shown+=stocks.length;
+    out.appendChild(buildSectorGroup(sector,stocks,screenerResults[sector].length));
+  }
+  const tot=sf?(screenerResults[sf]||[]).length:DATA.stocks.length;
+  const statusEl=document.getElementById('sc-status');
+  if(statusEl) statusEl.innerHTML=`Showing <span>${shown}</span> of ${tot} stocks · Ranked within each sector by weighted score`;
+}
+
+function buildSectorGroup(sector,stocks,total){
+  const div=document.createElement('div');
+  div.className='sector-group';
+  const safeSector=sector.replace(/[\s&]/g,'_');
+  div.innerHTML=`<div class="sector-group-hdr">
+    <span class="sector-group-name">${sector}</span>
+    <span class="sector-group-count">${stocks.length} of ${total}</span>
+    <span class="sector-ranked-badge">Ranked by score</span>
+  </div>
+  <table class="sc-table">
+    <thead><tr>
+      <th style="width:22px"></th><th style="width:58px">Ticker</th><th>Company</th>
+      <th style="width:150px">Score</th><th>Factors</th>
+      <th style="width:72px">Mom</th><th style="width:68px">Vol</th>
+      <th style="width:130px">Actions</th>
+    </tr></thead>
+    <tbody id="sctb-${safeSector}">${stocks.map(s=>buildStockRow(s,safeSector)).join('')}</tbody>
+  </table>`;
+  return div;
+}
+
+function buildStockRow(s,safeSector){
+  const inPort=PORTFOLIO.holdings.some(h=>h.ticker===s.ticker);
+  const sc=s.score;
+  const scColor=sc===null?'#484f58':sc>=65?'#3fb950':sc>=40?'#d29922':'#f85149';
+  const scClass=sc===null?'score-na':sc>=65?'score-green':sc>=40?'score-yellow':'score-red';
+  const mom=s.auto?.mom; const vol=s.auto?.vol;
+  const momStr=mom!=null?(mom>=0?'+':'')+(mom*100).toFixed(1)+'%':'—';
+  const momCol=mom==null?'#484f58':mom>=0?'#3fb950':'#f85149';
+  const volStr=vol!=null?(vol*100).toFixed(1)+'%':'—';
+  const chips=FACTORS.map(f=>{
+    if(f==='momentum'||f==='lowrisk') return `<span class="fchip fchip-auto" title="${f}: auto">${f.slice(0,3).toUpperCase()}</span>`;
+    const v=s.factorScores?.[f]; const hasData=v!==null&&v!==undefined;
+    return `<span class="fchip ${hasData?'fchip-manual':'fchip-empty'}" title="${f}: ${hasData?v+' pctile':'no data entered'}">${f.slice(0,3).toUpperCase()}</span>`;
+  }).join('');
+  const rk=s.rank; const rkC=rk===1?'rank-1':rk===2?'rank-2':rk===3?'rank-3':'rank-n';
+  return `<tr class="stock-row" data-ticker="${s.ticker}" data-type="stock">
+    <td><span class="rank-badge ${rkC}">${rk}</span></td>
+    <td><span class="ticker">${esc(s.ticker)}</span></td>
+    <td><span style="font-size:12px">${esc(s.name)}</span>${s.review?`<span class="review-dot" title="${esc(s.review)}"></span>`:''}</td>
+    <td><div class="score-cell"><div class="score-bar-bg"><div class="score-bar-fg" style="width:${sc??0}%;background:${scColor}"></div></div><span class="score-num ${scClass}">${sc??'—'}</span></div></td>
+    <td><div class="factor-chips">${chips}</div></td>
+    <td style="color:${momCol};font-family:monospace;font-size:12px">${momStr}</td>
+    <td style="font-family:monospace;font-size:12px;color:#8b949e">${volStr}</td>
+    <td><div style="display:flex;gap:5px;flex-wrap:wrap">
+      <button class="expand-toggle" onclick="toggleMetrics('${s.ticker}','${safeSector}')">✎ Data</button>
+      <button class="add-port-btn ${inPort?'is-added':'not-added'}" id="apb-${s.ticker}" onclick="scAddPortfolio('${esc(s.ticker)}','${esc(s.name)}')">${inPort?'✓ Added':'+ Port'}</button>
+    </div></td>
+  </tr>
+  <tr id="mrow-${s.ticker}" style="display:none"><td colspan="8">${buildMetricsExpand(s.ticker,s)}</td></tr>`;
+}
+
+function buildMetricsExpand(ticker,s){
+  const m=manualMetrics[ticker]||{};
+  const a=s.auto||{};
+  const fmt=v=>v!=null?(v*100).toFixed(1)+'%':'';
+  const fv=v=>v!=null?v:'';
+  return `<div class="metrics-expand">
+    <div class="mf-section-label">Auto-computed from price data (read-only)</div>
+    <div class="metrics-grid">
+      <div><div class="mf-label">12M Momentum <span class="mf-auto-tag">AUTO</span></div><input class="mf-input" value="${fmt(a.mom)}" disabled></div>
+      <div><div class="mf-label">Annualized Vol <span class="mf-auto-tag">AUTO</span></div><input class="mf-input" value="${fmt(a.vol)}" disabled></div>
+      <div><div class="mf-label">Max Drawdown 1Y <span class="mf-auto-tag">AUTO</span></div><input class="mf-input" value="${fmt(a.maxDD)}" disabled></div>
+      <div><div class="mf-label">1Y Return <span class="mf-auto-tag">AUTO</span></div><input class="mf-input" value="${fmt(a.ret1y)}" disabled></div>
+    </div>
+    <div class="mf-section-label">Quality factor — enter from SEC EDGAR / earnings</div>
+    <div class="metrics-grid">
+      <div><div class="mf-label">ROIC (%)</div><input class="mf-input" id="mf-${ticker}-roic" type="number" step="0.1" value="${fv(m.roic)}" placeholder="e.g. 18.5"></div>
+      <div><div class="mf-label">Gross Margin (%)</div><input class="mf-input" id="mf-${ticker}-gm" type="number" step="0.1" value="${fv(m.gm)}" placeholder="e.g. 42.0"></div>
+      <div><div class="mf-label">Debt / EBITDA ↓</div><input class="mf-input" id="mf-${ticker}-debtEbitda" type="number" step="0.1" value="${fv(m.debtEbitda)}" placeholder="e.g. 1.5"></div>
+    </div>
+    <div class="mf-section-label">Growth factor</div>
+    <div class="metrics-grid">
+      <div><div class="mf-label">3Y Rev Growth (%)</div><input class="mf-input" id="mf-${ticker}-revGrowth" type="number" step="0.1" value="${fv(m.revGrowth)}" placeholder="e.g. 12.0"></div>
+      <div><div class="mf-label">EPS Growth (%)</div><input class="mf-input" id="mf-${ticker}-epsGrowth" type="number" step="0.1" value="${fv(m.epsGrowth)}" placeholder="e.g. 15.0"></div>
+    </div>
+    <div class="mf-section-label">Valuation factor</div>
+    <div class="metrics-grid">
+      <div><div class="mf-label">P/E Ratio ↓</div><input class="mf-input" id="mf-${ticker}-pe" type="number" step="0.1" value="${fv(m.pe)}" placeholder="e.g. 22.0"></div>
+      <div><div class="mf-label">EV / EBITDA ↓</div><input class="mf-input" id="mf-${ticker}-evEbitda" type="number" step="0.1" value="${fv(m.evEbitda)}" placeholder="e.g. 15.0"></div>
+      <div><div class="mf-label">FCF Yield (%)</div><input class="mf-input" id="mf-${ticker}-fcfYield" type="number" step="0.1" value="${fv(m.fcfYield)}" placeholder="e.g. 4.5"></div>
+    </div>
+    <div class="mf-section-label">Income factor</div>
+    <div class="metrics-grid">
+      <div><div class="mf-label">Dividend Yield (%)</div><input class="mf-input" id="mf-${ticker}-divYield" type="number" step="0.1" value="${fv(m.divYield)}" placeholder="e.g. 2.5"></div>
+      <div><div class="mf-label">Payout Ratio (%) ↓</div><input class="mf-input" id="mf-${ticker}-payoutRatio" type="number" step="0.1" value="${fv(m.payoutRatio)}" placeholder="e.g. 35.0"></div>
+    </div>
+    <div class="mf-section-label">Notes (for human check)</div>
+    <div class="metrics-grid">
+      <div style="grid-column:span 2"><div class="mf-label">Thesis (one line)</div><input class="mf-input" id="mf-${ticker}-thesis" value="${esc(m.thesis||'')}" placeholder="Why this stock?"></div>
+      <div><div class="mf-label">Main Risk</div><input class="mf-input" id="mf-${ticker}-risk" value="${esc(m.risk||'')}" placeholder="Biggest risk?"></div>
+      <div><div class="mf-label">Catalyst</div><input class="mf-input" id="mf-${ticker}-catalyst" value="${esc(m.catalyst||'')}" placeholder="Near-term catalyst?"></div>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center;margin-top:4px">
+      <button class="mf-save-btn" onclick="saveMetrics('${ticker}')">Save & Re-Score</button>
+      <span id="mf-saved-${ticker}" style="font-size:11px;color:#3fb950;display:none">✓ Saved</span>
+    </div>
+  </div>`;
+}
+
+function toggleMetrics(ticker,safeSector){
+  const row=document.getElementById('mrow-'+ticker);
+  if(row) row.style.display=row.style.display==='none'?'':'none';
+}
+
+function saveMetrics(ticker){
+  const nums=['roic','gm','debtEbitda','revGrowth','epsGrowth','pe','evEbitda','fcfYield','divYield','payoutRatio'];
+  const strs=['thesis','risk','catalyst'];
+  if(!manualMetrics[ticker]) manualMetrics[ticker]={};
+  for(const f of nums){
+    const el=document.getElementById(`mf-${ticker}-${f}`);
+    if(!el) continue;
+    const v=el.value.trim();
+    manualMetrics[ticker][f]=v!==''?parseFloat(v):undefined;
+  }
+  for(const f of strs){
+    const el=document.getElementById(`mf-${ticker}-${f}`);
+    if(el) manualMetrics[ticker][f]=el.value.trim()||undefined;
+  }
+  saveManualMetrics();
+  const sEl=document.getElementById('mf-saved-'+ticker);
+  if(sEl){sEl.style.display='inline';setTimeout(()=>sEl.style.display='none',2000);}
+  // Re-rank the sector this stock belongs to
+  const stockMeta=DATA.stocks.find(s=>s.ticker===ticker);
+  if(stockMeta&&screenerRanked){
+    const sector=stockMeta.sector;
+    const bySector={};
+    for(const s of DATA.stocks){ if(s.sector===sector){ if(!bySector[sector])bySector[sector]=[]; bySector[sector].push(s); }}
+    rankSector(sector,bySector[sector]).then(ranked=>{screenerResults[sector]=ranked;filterScreener();});
+  }
+}
+
+function scAddPortfolio(ticker,name){
+  if(PORTFOLIO.holdings.some(h=>h.ticker===ticker)) return;
+  PORTFOLIO.holdings.push({ticker,name,type:'stock',weight:4});
+  savePortfolio();
+  const btn=document.getElementById('apb-'+ticker);
+  if(btn){btn.className='add-port-btn is-added';btn.textContent='✓ Added';btn.onclick=null;}
+}
+
+// ── PORTFOLIO ────────────────────────────────────────────────────────────────
+const BASE=500000;
+let PORTFOLIO=JSON.parse(localStorage.getItem('wgPortfolio')||'{"holdings":[],"cash":2}');
+let IPS=JSON.parse(localStorage.getItem('wgIPS')||'{"profile":"balanced","returnObj":"Growth","risk":"Moderate","horizon":"Medium (3–10 years)","constraints":"","liquidity":""}');
+let TRADE_LOG=JSON.parse(localStorage.getItem('wgTradeLog')||'[]');
+let allocChart=null;
+
+function savePortfolio(){localStorage.setItem('wgPortfolio',JSON.stringify(PORTFOLIO));}
+function saveTL(){localStorage.setItem('wgTradeLog',JSON.stringify(TRADE_LOG));}
+
+function saveIPS(){
+  IPS={
+    profile:document.getElementById('ips-profile')?.value||'balanced',
+    returnObj:document.getElementById('ips-return')?.value||'Growth',
+    risk:document.getElementById('ips-risk')?.value||'Moderate',
+    horizon:document.getElementById('ips-horizon')?.value||'Medium',
+    constraints:document.getElementById('ips-constraints')?.value||'',
+    liquidity:document.getElementById('ips-liquidity')?.value||''
+  };
+  localStorage.setItem('wgIPS',JSON.stringify(IPS));
+  onIPSChange();
+}
+
+function onIPSChange(){updateAllocTargetRange();}
+
+function initIPS(){
+  const map={
+    'ips-profile':'profile','ips-return':'returnObj','ips-risk':'risk',
+    'ips-horizon':'horizon','ips-constraints':'constraints','ips-liquidity':'liquidity'
+  };
+  for(const[id,key]of Object.entries(map)){
+    const el=document.getElementById(id);
+    if(el&&IPS[key]) el.value=IPS[key];
+  }
+  updateAllocTargetRange();
+}
+
+function updateAllocTargetRange(){
+  const p=document.getElementById('ips-profile')?.value||'balanced';
+  const r={
+    growth:'ETFs 30–40% &nbsp;·&nbsp; Stocks 50–60% &nbsp;·&nbsp; Bonds 0–10% &nbsp;·&nbsp; Cash ~2%',
+    balanced:'ETFs 35–45% &nbsp;·&nbsp; Stocks 35–45% &nbsp;·&nbsp; Bonds 10–20% &nbsp;·&nbsp; Cash 2–5%',
+    conservative:'ETFs 40–50% &nbsp;·&nbsp; Stocks 15–25% &nbsp;·&nbsp; Bonds 25–35% &nbsp;·&nbsp; Cash ~5%'
+  };
+  const el=document.getElementById('alloc-target-range');
+  if(el) el.innerHTML=r[p]||'';
+}
+
+function initPortfolioSelects(){
+  const etfEl=document.getElementById('add-etf-select');
+  const stEl=document.getElementById('add-stock-select');
+  const boEl=document.getElementById('add-bond-select');
+  if(etfEl&&!etfEl.children.length){
+    etfEl.innerHTML='<option value="">Select ETF…</option>'+
+      DATA.etfs.map(e=>`<option value="${esc(e.ticker)}">${esc(e.ticker)} — ${esc(e.name)}</option>`).join('');
+  }
+  if(stEl&&!stEl.children.length){
+    stEl.innerHTML='<option value="">Select stock…</option>'+
+      DATA.stocks.map(s=>`<option value="${esc(s.ticker)}">${esc(s.ticker)} — ${esc(s.name)}</option>`).join('');
+  }
+  if(boEl&&!boEl.children.length){
+    boEl.innerHTML='<option value="">Select bond…</option>'+
+      DATA.bonds.map(b=>`<option value="${esc(b.wins_code)}">${esc(b.wins_code)} — ${esc(b.country)} ${esc(b.instrument)} ${b.coupon||''}% ${esc(b.maturity||'')}</option>`).join('');
+  }
+}
+
+function addHolding(type){
+  const sel=document.getElementById(`add-${type}-select`);
+  if(!sel||!sel.value) return;
+  const ticker=sel.value;
+  if(PORTFOLIO.holdings.some(h=>h.ticker===ticker)){sel.value='';return;}
+  let name='';
+  if(type==='etf') name=DATA.etfs.find(e=>e.ticker===ticker)?.name||ticker;
+  else if(type==='stock') name=DATA.stocks.find(s=>s.ticker===ticker)?.name||ticker;
+  else name=ticker;
+  const defaultW=type==='etf'?10:type==='bond'?5:4;
+  PORTFOLIO.holdings.push({ticker,name,type,weight:defaultW});
+  savePortfolio(); updatePortfolio(); sel.value='';
+}
+
+function removeHolding(ticker){
+  PORTFOLIO.holdings=PORTFOLIO.holdings.filter(h=>h.ticker!==ticker);
+  savePortfolio(); updatePortfolio();
+}
+
+function updateHoldingWeight(ticker,val){
+  const h=PORTFOLIO.holdings.find(h=>h.ticker===ticker);
+  if(h){h.weight=parseFloat(val)||0;savePortfolio();updatePortfolio();}
+}
+
+function updatePortfolio(){
+  renderHoldings();updateAllocChart();updateRiskChecks();
+}
+
+function renderHoldings(){
+  const types=['etf','stock','bond'];
+  for(const type of types){
+    const el=document.getElementById('holdings-'+type);
+    if(!el) continue;
+    const items=PORTFOLIO.holdings.filter(h=>h.type===type);
+    if(!items.length){el.innerHTML='<div class="no-holdings">None added yet</div>';}
+    else{
+      el.innerHTML=items.map(h=>`
+        <div class="holding-row">
+          <span class="h-ticker">${esc(h.ticker)}</span>
+          <span class="h-name">${esc(h.name)}</span>
+          <div style="display:flex;align-items:center;gap:6px;flex-shrink:0">
+            <input type="number" class="h-weight-input" value="${h.weight}" min="0" max="50" step="0.5"
+              onchange="updateHoldingWeight('${esc(h.ticker)}',this.value)">
+            <span class="h-pct">%</span>
+            <span class="h-dollar">$${Math.round(h.weight/100*BASE).toLocaleString()}</span>
+            <button class="h-remove" onclick="removeHolding('${esc(h.ticker)}')" title="Remove">×</button>
+          </div>
+        </div>`).join('');
+    }
+    const pct=items.reduce((a,h)=>a+h.weight,0);
+    const sp=document.getElementById('sleeve-pct-'+type);
+    if(sp) sp.textContent=pct.toFixed(1)+'%';
+  }
+  const cashW=parseFloat(document.getElementById('cash-weight')?.value||2);
+  PORTFOLIO.cash=cashW;
+  const cd=document.getElementById('cash-dollar');
+  if(cd) cd.textContent='$'+Math.round(cashW/100*BASE).toLocaleString();
+  const spc=document.getElementById('sleeve-pct-cash');
+  if(spc) spc.textContent=cashW.toFixed(1)+'%';
+  const total=PORTFOLIO.holdings.reduce((a,h)=>a+h.weight,0)+cashW;
+  const ptd=document.getElementById('port-total-pct-display');
+  if(ptd) ptd.textContent=total.toFixed(1)+'%';
+  const ptDol=document.getElementById('port-total-dollar');
+  if(ptDol) ptDol.textContent='$'+Math.round(total/100*BASE).toLocaleString();
+  const prEl=document.getElementById('port-remaining');
+  const rem=100-total;
+  if(prEl){
+    if(Math.abs(rem)<0.1){prEl.textContent='✓ Fully allocated';prEl.className='port-total-pct port-total-ok';}
+    else if(rem>0){prEl.textContent=`(${rem.toFixed(1)}% unallocated)`;prEl.className='port-total-pct port-total-warn';}
+    else{prEl.textContent=`(${Math.abs(rem).toFixed(1)}% over!)`;prEl.className='port-total-pct port-total-over';}
+  }
+  const sl=document.getElementById('port-summary-label');
+  if(sl) sl.textContent=`${PORTFOLIO.holdings.length} positions · $${BASE.toLocaleString()} base`;
+}
+
+function updateAllocChart(){
+  const ep=PORTFOLIO.holdings.filter(h=>h.type==='etf').reduce((a,h)=>a+h.weight,0);
+  const sp=PORTFOLIO.holdings.filter(h=>h.type==='stock').reduce((a,h)=>a+h.weight,0);
+  const bp=PORTFOLIO.holdings.filter(h=>h.type==='bond').reduce((a,h)=>a+h.weight,0);
+  const cp=parseFloat(document.getElementById('cash-weight')?.value||2);
+  const tot=ep+sp+bp+cp;
+  const rest=Math.max(0,100-tot);
+  const fmt=p=>'$'+Math.round(p/100*BASE).toLocaleString();
+  document.getElementById('al-etf-pct').textContent=ep.toFixed(1)+'%';
+  document.getElementById('al-etf-dollar').textContent=fmt(ep);
+  document.getElementById('al-stock-pct').textContent=sp.toFixed(1)+'%';
+  document.getElementById('al-stock-dollar').textContent=fmt(sp);
+  document.getElementById('al-bond-pct').textContent=bp.toFixed(1)+'%';
+  document.getElementById('al-bond-dollar').textContent=fmt(bp);
+  document.getElementById('al-cash-pct').textContent=cp.toFixed(1)+'%';
+  document.getElementById('al-cash-dollar').textContent=fmt(cp);
+  const cEl=document.getElementById('alloc-center-pct');
+  if(cEl) cEl.textContent=tot.toFixed(0)+'%';
+  const data=[ep,sp,bp,cp,rest];
+  const colors=['#1f6feb','#3fb950','#d29922','#484f58','#1a1f26'];
+  if(allocChart){allocChart.data.datasets[0].data=data;allocChart.update();}
+  else{
+    const canvas=document.getElementById('alloc-chart');
+    if(!canvas) return;
+    allocChart=new Chart(canvas,{
+      type:'doughnut',
+      data:{datasets:[{data,backgroundColor:colors,borderWidth:0,hoverBorderWidth:0}]},
+      options:{
+        cutout:'70%',responsive:true,maintainAspectRatio:false,
+        plugins:{legend:{display:false},tooltip:{
+          backgroundColor:'#1c2128',borderColor:'#30363d',borderWidth:1,
+          titleColor:'#8b949e',bodyColor:'#e1e4e8',
+          callbacks:{label:ctx=>{
+            const L=['ETFs','Stocks','Bonds','Cash','Unallocated'];
+            return ` ${L[ctx.dataIndex]}: ${ctx.raw.toFixed(1)}%`;
+          }}
+        }}
+      }
+    });
+  }
+}
+
+function updateRiskChecks(){
+  const stocks=PORTFOLIO.holdings.filter(h=>h.type==='stock');
+  const total=PORTFOLIO.holdings.reduce((a,h)=>a+h.weight,0)+parseFloat(document.getElementById('cash-weight')?.value||2);
+  const maxSt=stocks.length?Math.max(...stocks.map(h=>h.weight)):0;
+  const maxStT=stocks.find(h=>h.weight===maxSt)?.ticker||'—';
+  const sectorMap={};
+  for(const h of PORTFOLIO.holdings.filter(h=>h.type==='stock')){
+    const sec=SMETA[h.ticker]?.sector||'Unknown';
+    sectorMap[sec]=(sectorMap[sec]||0)+h.weight;
+  }
+  const maxSec=Object.values(sectorMap).length?Math.max(...Object.values(sectorMap)):0;
+  const maxSecN=Object.entries(sectorMap).find(([,v])=>v===maxSec)?.[0]||'—';
+  const hasETF=PORTFOLIO.holdings.some(h=>h.type==='etf');
+  const nStocks=stocks.length;
+  const checks=[
+    {label:`Mandatory ETF`,val:hasETF?'Yes — ✓':'No ETF added!',ok:hasETF,cap:'Required'},
+    {label:`Individual stocks`,val:nStocks,ok:nStocks>=15&&nStocks<=25,warn:nStocks>=10,cap:'15–25'},
+    {label:`Max single stock (${maxStT})`,val:maxSt.toFixed(1)+'%',ok:maxSt<=8,warn:maxSt<=10,cap:'5–8%'},
+    {label:`Max sector (${maxSecN})`,val:maxSec.toFixed(1)+'%',ok:maxSec<=25,warn:maxSec<=30,cap:'25–30%'},
+    {label:'Total allocated',val:total.toFixed(1)+'%',ok:Math.abs(total-100)<1,warn:Math.abs(total-100)<5,cap:'100%'},
+  ];
+  const rcEl=document.getElementById('risk-checks');
+  if(rcEl) rcEl.innerHTML=checks.map(c=>{
+    const cls=c.ok?'risk-ok':(c.warn===false?'risk-fail':c.warn?'risk-warn':'risk-fail');
+    const icon=c.ok?'✓':c.warn===false||!c.warn?'✗':'⚠';
+    return `<div class="risk-row">
+      <span class="risk-label">${c.label} <span style="font-size:10px;color:#30363d">cap: ${c.cap}</span></span>
+      <span class="risk-val ${cls}">${icon} ${c.val}</span>
+    </div>`;
+  }).join('');
+  const sbEl=document.getElementById('sector-bars');
+  if(sbEl){
+    if(!Object.keys(sectorMap).length){sbEl.innerHTML='';return;}
+    sbEl.innerHTML='<div style="font-size:10px;color:#8b949e;margin-bottom:8px;text-transform:uppercase;letter-spacing:.4px">Sector Concentration (stocks only · red line = 25% cap)</div>'+
+      Object.entries(sectorMap).sort((a,b)=>b[1]-a[1]).map(([sec,pct])=>{
+        const max=Math.max(pct,30);
+        const barW=Math.min((pct/max)*100,100);
+        const capPos=Math.min((25/max)*100,100);
+        const bc=pct>30?'#f85149':pct>25?'#f0883e':'#1f6feb';
+        return `<div class="sb-row"><div class="sb-label"><span>${sec}</span><span>${pct.toFixed(1)}%</span></div>
+          <div class="sb-bar-bg"><div class="sb-bar-fg" style="width:${barW}%;background:${bc}"></div>
+          <div class="sb-cap-line" style="left:${capPos}%"></div></div></div>`;
+      }).join('');
+  }
+}
+
+// ── TRADE LOG ─────────────────────────────────────────────────────────────────
+function toggleTradeForm(){
+  const f=document.getElementById('tl-form');
+  if(!f) return;
+  f.classList.toggle('open');
+  if(f.classList.contains('open')){
+    const d=document.getElementById('tl-date');
+    if(d) d.value=new Date().toISOString().split('T')[0];
+  }
+}
+
+function submitTrade(){
+  const t={
+    id:Date.now(),
+    date:document.getElementById('tl-date')?.value||'',
+    ticker:(document.getElementById('tl-ticker')?.value||'').toUpperCase(),
+    action:document.getElementById('tl-action')?.value||'BUY',
+    size:document.getElementById('tl-size')?.value||'',
+    weightAfter:document.getElementById('tl-weight')?.value||'',
+    rule:document.getElementById('tl-rule')?.value||'',
+    thesis:document.getElementById('tl-thesis')?.value||'',
+    client:document.getElementById('tl-client')?.value||'',
+  };
+  if(!t.ticker||!t.date){alert('Date and ticker are required.');return;}
+  TRADE_LOG.unshift(t);saveTL();renderTradeLog();toggleTradeForm();
+  ['tl-ticker','tl-size','tl-weight','tl-thesis','tl-client'].forEach(id=>{
+    const el=document.getElementById(id);if(el)el.value='';
+  });
+}
+
+function deleteTrade(id){TRADE_LOG=TRADE_LOG.filter(t=>t.id!==id);saveTL();renderTradeLog();}
+
+function renderTradeLog(){
+  const el=document.getElementById('tl-output');
+  if(!el) return;
+  if(!TRADE_LOG.length){el.innerHTML='<div class="no-trades">No trades logged yet. Click <strong>+ Log Trade</strong> to begin — every trade must be logged for the Trading Notes Analysis.</div>';return;}
+  el.innerHTML=`<table class="tl-table">
+    <thead><tr><th>Date</th><th>Ticker</th><th>Action</th><th>Size</th><th>Wt%</th><th>Rule</th><th style="min-width:160px">Thesis</th><th style="min-width:140px">Serves Client</th><th></th></tr></thead>
+    <tbody>${TRADE_LOG.map(t=>`<tr>
+      <td style="color:#8b949e;white-space:nowrap">${t.date||'—'}</td>
+      <td><span class="ticker">${esc(t.ticker)}</span></td>
+      <td><span class="tl-action-${(t.action||'').toLowerCase()}">${esc(t.action)}</span></td>
+      <td style="color:#8b949e;font-size:11px">${esc(t.size)||'—'}</td>
+      <td style="font-family:monospace;color:#8b949e">${t.weightAfter?t.weightAfter+'%':'—'}</td>
+      <td style="font-size:11px;color:#484f58;max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${esc(t.rule)}">${esc(t.rule)||'—'}</td>
+      <td style="font-size:11px;color:#8b949e;max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${esc(t.thesis)}">${esc(t.thesis)||'—'}</td>
+      <td style="font-size:11px;color:#8b949e;max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${esc(t.client)}">${esc(t.client)||'—'}</td>
+      <td><button class="tl-del-btn" onclick="deleteTrade(${t.id})" title="Delete">×</button></td>
+    </tr>`).join('')}</tbody>
+  </table>`;
+}
+
+function exportTradeLog(){
+  if(!TRADE_LOG.length){alert('No trades to export.');return;}
+  const hdrs=['Date','Ticker','Action','Size','Weight After (%)','Rule','Thesis','How It Serves Client'];
+  const rows=TRADE_LOG.map(t=>[t.date,t.ticker,t.action,t.size,t.weightAfter,t.rule,t.thesis,t.client]
+    .map(v=>`"${(v||'').replace(/"/g,'""')}"`));
+  const csv=[hdrs.join(','),...rows.map(r=>r.join(','))].join('\n');
+  const a=document.createElement('a');
+  a.href='data:text/csv;charset=utf-8,'+encodeURIComponent(csv);
+  a.download='wghic_trade_log.csv';a.click();
+}
+
 // Init
 renderStocks();
 renderETFs();
 renderBonds();
+updateWeightDisplay();
 </script>
 </body>
 </html>
