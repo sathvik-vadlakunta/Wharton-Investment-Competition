@@ -238,6 +238,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;heigh
     <button class="tab" onclick="switchTab('bonds')">Gov Bonds <span id="tc-b"></span></button>
     <button class="tab" onclick="switchTab('screener')" style="color:#58a6ff">Screener</button>
     <button class="tab" onclick="switchTab('portfolio')" style="color:#3fb950">Portfolio</button>
+    <button class="tab" onclick="switchTab('methodology')" style="color:#d29922">Methodology</button>
   </div>
   <div id="panel-stocks">
     <div class="controls">
@@ -301,6 +302,237 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;heigh
   </div>
 </div>
 
+<!-- METHODOLOGY -->
+<div id="panel-methodology" style="display:none">
+<div style="max-width:900px">
+
+  <div class="p-card">
+    <h3>Overall Scoring Formula <span class="h3-sub">Step 4 — applied within each sector</span></h3>
+    <p style="font-size:13px;color:#8b949e;margin-bottom:16px">Every stock is scored relative to its sector peers, not the full universe. A stock ranked in the 80th percentile for P/E means it is cheaper than 80% of stocks in the <em>same sector</em>.</p>
+    <div style="background:#0f1117;border:1px solid #21262d;border-radius:8px;padding:18px;margin-bottom:16px;font-family:monospace">
+      <div style="font-size:15px;color:#f0f6fc;margin-bottom:10px">Score<sub style="font-size:10px">i</sub> = Σ ( w<sub style="font-size:10px">f</sub> × percentile<sub style="font-size:10px">f,i</sub> )</div>
+      <div style="font-size:11px;color:#484f58">where Σ w<sub>f</sub> = 1 (weights sum to 100%)</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:13px">
+      <div style="background:#0f1117;border:1px solid #21262d;border-radius:7px;padding:12px">
+        <div style="color:#8b949e;font-size:10px;text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px">percentile<sub>f,i</sub> — how to read it</div>
+        <div style="color:#e1e4e8;line-height:1.7">0 = worst in its sector<br>50 = median<br>100 = best in its sector<br><span style="color:#484f58;font-size:11px">Only stocks with a value for that metric contribute. If no data is entered for a factor, its weight is redistributed proportionally across factors that do have data.</span></div>
+      </div>
+      <div style="background:#0f1117;border:1px solid #21262d;border-radius:7px;padding:12px">
+        <div style="color:#8b949e;font-size:10px;text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px">Score color guide</div>
+        <div style="line-height:2">
+          <span style="color:#3fb950;font-weight:700">65–100</span> <span style="color:#8b949e">— Strong buy candidate</span><br>
+          <span style="color:#d29922;font-weight:700">40–64</span> <span style="color:#8b949e">— Neutral / research more</span><br>
+          <span style="color:#f85149;font-weight:700">0–39</span> <span style="color:#8b949e">— Weak in its sector</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-card">
+    <h3>Auto-Computed Metrics <span class="h3-sub">derived from 2-year daily price data in <code style="font-size:11px;color:#58a6ff">data/prices/TICKER.json</code></span></h3>
+    <p style="font-size:13px;color:#8b949e;margin-bottom:14px">These are calculated in the browser the first time you rank — no manual input needed. Blue <span style="font-size:10px;background:rgba(88,166,255,.1);border:1px solid rgba(88,166,255,.25);color:#58a6ff;padding:1px 5px;border-radius:6px">AUTO</span> chips mean the factor is already live.</p>
+
+    <div style="margin-bottom:18px">
+      <div style="font-size:12px;font-weight:700;color:#58a6ff;margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px">12-Month Momentum (used in Momentum factor)</div>
+      <div style="background:#0f1117;border:1px solid #21262d;border-radius:7px;padding:14px;font-family:monospace;font-size:13px;color:#f0f6fc;margin-bottom:6px">
+        momentum = P<sub>t−22</sub> / P<sub>t−252</sub> − 1
+      </div>
+      <div style="font-size:12px;color:#484f58;line-height:1.7">
+        P<sub>t−252</sub> = closing price ~252 trading days ago (≈ 12 months)<br>
+        P<sub>t−22</sub> = closing price ~22 trading days ago (≈ 1 month ago)<br>
+        Skipping the last month avoids the short-term reversal effect documented in academic literature. Higher momentum = better rank.
+      </div>
+    </div>
+
+    <div style="margin-bottom:18px">
+      <div style="font-size:12px;font-weight:700;color:#58a6ff;margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px">Annualized Volatility (used in Low Risk factor — lower is better)</div>
+      <div style="background:#0f1117;border:1px solid #21262d;border-radius:7px;padding:14px;font-family:monospace;font-size:13px;color:#f0f6fc;margin-bottom:6px">
+        r<sub>t</sub> = ln( P<sub>t</sub> / P<sub>t−1</sub> )<br><br>
+        σ = √( Var(r) × 252 )
+      </div>
+      <div style="font-size:12px;color:#484f58;line-height:1.7">
+        Daily log returns over the past 252 trading days are used to compute sample variance, then annualized by multiplying by 252 (trading days per year) before taking the square root. Lower volatility stocks rank higher in the Low Risk factor.
+      </div>
+    </div>
+
+    <div style="margin-bottom:18px">
+      <div style="font-size:12px;font-weight:700;color:#58a6ff;margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px">Maximum Drawdown 1Y (used in Low Risk factor — lower is better)</div>
+      <div style="background:#0f1117;border:1px solid #21262d;border-radius:7px;padding:14px;font-family:monospace;font-size:13px;color:#f0f6fc;margin-bottom:6px">
+        MaxDD = max<sub>t∈[0,T]</sub> ( Peak<sub>t</sub> − P<sub>t</sub> ) / Peak<sub>t</sub>
+      </div>
+      <div style="font-size:12px;color:#484f58;line-height:1.7">
+        Peak<sub>t</sub> = running maximum of closing prices up to day t over the past year. Expressed as a positive decimal (e.g. 0.18 = 18% drawdown). Smaller drawdown = better rank.
+      </div>
+    </div>
+
+    <div>
+      <div style="font-size:12px;font-weight:700;color:#58a6ff;margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px">1-Year Return (display only — not directly scored)</div>
+      <div style="background:#0f1117;border:1px solid #21262d;border-radius:7px;padding:14px;font-family:monospace;font-size:13px;color:#f0f6fc;margin-bottom:6px">
+        Return<sub>1Y</sub> = P<sub>last</sub> / P<sub>first in 1Y window</sub> − 1
+      </div>
+      <div style="font-size:12px;color:#484f58">Shown in the stock modal chart. Not fed into the score directly — momentum already captures price trend in a more academically robust way.</div>
+    </div>
+  </div>
+
+  <div class="p-card">
+    <h3>Manual Metrics by Factor <span class="h3-sub">enter via ✎ Data in the Screener — stored in browser localStorage</span></h3>
+    <p style="font-size:13px;color:#8b949e;margin-bottom:14px">Source these from SEC EDGAR 10-K/10-Q filings, or services like Macrotrends, Wisesheets, or Yahoo Finance. Pull the most recent annual figure unless noted.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+
+      <div style="background:#0f1117;border:1px solid #21262d;border-radius:8px;padding:14px">
+        <div style="font-size:11px;font-weight:700;color:#3fb950;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px">Quality factor</div>
+        <div style="font-size:12px;color:#8b949e;line-height:2">
+          <span style="color:#e1e4e8;font-family:monospace">ROIC (%)</span> — Return on Invested Capital = NOPAT / Invested Capital. Higher = better.<br>
+          <span style="color:#e1e4e8;font-family:monospace">Gross Margin (%)</span> — Gross Profit / Revenue. Higher = better pricing power.<br>
+          <span style="color:#e1e4e8;font-family:monospace">Debt / EBITDA</span> — Total Debt / EBITDA. <strong style="color:#f85149">Lower = better</strong> (inverted in ranking). Banks &amp; insurers: substitute ROE.
+        </div>
+      </div>
+
+      <div style="background:#0f1117;border:1px solid #21262d;border-radius:8px;padding:14px">
+        <div style="font-size:11px;font-weight:700;color:#3fb950;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px">Growth factor</div>
+        <div style="font-size:12px;color:#8b949e;line-height:2">
+          <span style="color:#e1e4e8;font-family:monospace">3Y Revenue Growth (%)</span> — CAGR of revenue over 3 years = (Rev<sub>now</sub>/Rev<sub>3Y ago</sub>)<sup>1/3</sup> − 1. Higher = better.<br>
+          <span style="color:#e1e4e8;font-family:monospace">EPS Growth (%)</span> — YoY change in diluted EPS. Higher = better. Use TTM if annual data is stale.
+        </div>
+      </div>
+
+      <div style="background:#0f1117;border:1px solid #21262d;border-radius:8px;padding:14px">
+        <div style="font-size:11px;font-weight:700;color:#3fb950;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px">Valuation factor</div>
+        <div style="font-size:12px;color:#8b949e;line-height:2">
+          <span style="color:#e1e4e8;font-family:monospace">P/E Ratio</span> — Price / Diluted EPS. <strong style="color:#f85149">Lower = better</strong> (inverted).<br>
+          <span style="color:#e1e4e8;font-family:monospace">EV / EBITDA</span> — Enterprise Value / EBITDA. <strong style="color:#f85149">Lower = better</strong> (inverted). More sector-neutral than P/E.<br>
+          <span style="color:#e1e4e8;font-family:monospace">FCF Yield (%)</span> — Free Cash Flow / Market Cap × 100. Higher = better (more cash per dollar invested).
+        </div>
+      </div>
+
+      <div style="background:#0f1117;border:1px solid #21262d;border-radius:8px;padding:14px">
+        <div style="font-size:11px;font-weight:700;color:#3fb950;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px">Income factor</div>
+        <div style="font-size:12px;color:#8b949e;line-height:2">
+          <span style="color:#e1e4e8;font-family:monospace">Dividend Yield (%)</span> — Annual Dividend / Price × 100. Higher = better for income.<br>
+          <span style="color:#e1e4e8;font-family:monospace">Payout Ratio (%)</span> — Dividends / Net Income × 100. <strong style="color:#f85149">Lower = better</strong> (inverted) — lower means the dividend is more sustainable relative to earnings.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="p-card">
+    <h3>Percentile Ranking Procedure <span class="h3-sub">computed fresh each time you click "Rank"</span></h3>
+    <div style="background:#0f1117;border:1px solid #21262d;border-radius:7px;padding:14px;font-family:monospace;font-size:13px;color:#f0f6fc;margin-bottom:10px">
+      percentile<sub>i</sub> = rank(v<sub>i</sub>) / (N − 1) × 100<br><br>
+      <span style="color:#484f58;font-size:11px">rank(v<sub>i</sub>) = number of peers with a strictly worse value than v<sub>i</sub></span>
+    </div>
+    <div style="font-size:12px;color:#484f58;line-height:1.8">
+      For metrics where <strong style="color:#f85149">lower is better</strong> (P/E, EV/EBITDA, Debt/EBITDA, Volatility, Max Drawdown, Payout Ratio), the rank is inverted: a stock with a lower value gets a higher percentile.<br><br>
+      If fewer than 2 stocks in a sector have data for a metric, all are assigned 50 (median) for that sub-metric — not enough data to differentiate.<br><br>
+      Factor-level score = simple average of available sub-metric percentiles. If all sub-metrics for a factor are null, the factor is skipped and its weight is redistributed proportionally.
+    </div>
+  </div>
+
+  <div class="p-card">
+    <h3>Factor Weight Presets <span class="h3-sub">from the framework PDF — adjust sliders to override</span></h3>
+    <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:13px">
+        <thead>
+          <tr style="border-bottom:1px solid #30363d">
+            <th style="text-align:left;padding:8px 12px;color:#8b949e;font-size:11px;text-transform:uppercase;letter-spacing:.4px;font-weight:600">Factor</th>
+            <th style="text-align:left;padding:8px 12px;color:#8b949e;font-size:11px;text-transform:uppercase;letter-spacing:.4px;font-weight:600">Sub-metrics</th>
+            <th style="text-align:center;padding:8px 12px;color:#58a6ff;font-size:11px;text-transform:uppercase;letter-spacing:.4px;font-weight:600">Growth</th>
+            <th style="text-align:center;padding:8px 12px;color:#3fb950;font-size:11px;text-transform:uppercase;letter-spacing:.4px;font-weight:600">Balanced</th>
+            <th style="text-align:center;padding:8px 12px;color:#d29922;font-size:11px;text-transform:uppercase;letter-spacing:.4px;font-weight:600">Income</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid #21262d">
+            <td style="padding:10px 12px;font-weight:600;color:#e1e4e8">Quality</td>
+            <td style="padding:10px 12px;color:#8b949e;font-size:12px">ROIC · Gross Margin · Debt/EBITDA↓</td>
+            <td style="padding:10px 12px;text-align:center;font-family:monospace;color:#58a6ff">25%</td>
+            <td style="padding:10px 12px;text-align:center;font-family:monospace;color:#3fb950">30%</td>
+            <td style="padding:10px 12px;text-align:center;font-family:monospace;color:#d29922">25%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #21262d">
+            <td style="padding:10px 12px;font-weight:600;color:#e1e4e8">Growth</td>
+            <td style="padding:10px 12px;color:#8b949e;font-size:12px">3Y Revenue Growth · EPS Growth</td>
+            <td style="padding:10px 12px;text-align:center;font-family:monospace;color:#58a6ff">30%</td>
+            <td style="padding:10px 12px;text-align:center;font-family:monospace;color:#3fb950">15%</td>
+            <td style="padding:10px 12px;text-align:center;font-family:monospace;color:#d29922">5%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #21262d">
+            <td style="padding:10px 12px;font-weight:600;color:#e1e4e8">Valuation</td>
+            <td style="padding:10px 12px;color:#8b949e;font-size:12px">P/E↓ · EV/EBITDA↓ · FCF Yield</td>
+            <td style="padding:10px 12px;text-align:center;font-family:monospace;color:#58a6ff">15%</td>
+            <td style="padding:10px 12px;text-align:center;font-family:monospace;color:#3fb950">25%</td>
+            <td style="padding:10px 12px;text-align:center;font-family:monospace;color:#d29922">20%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #21262d">
+            <td style="padding:10px 12px;font-weight:600;color:#e1e4e8">Momentum <span style="font-size:10px;color:#58a6ff;background:rgba(88,166,255,.1);padding:1px 5px;border-radius:4px;margin-left:4px">AUTO</span></td>
+            <td style="padding:10px 12px;color:#8b949e;font-size:12px">12M price return skipping last month</td>
+            <td style="padding:10px 12px;text-align:center;font-family:monospace;color:#58a6ff">20%</td>
+            <td style="padding:10px 12px;text-align:center;font-family:monospace;color:#3fb950">10%</td>
+            <td style="padding:10px 12px;text-align:center;font-family:monospace;color:#d29922">5%</td>
+          </tr>
+          <tr style="border-bottom:1px solid #21262d">
+            <td style="padding:10px 12px;font-weight:600;color:#e1e4e8">Low Risk <span style="font-size:10px;color:#58a6ff;background:rgba(88,166,255,.1);padding:1px 5px;border-radius:4px;margin-left:4px">AUTO</span></td>
+            <td style="padding:10px 12px;color:#8b949e;font-size:12px">Annualized volatility↓ · Max drawdown 1Y↓</td>
+            <td style="padding:10px 12px;text-align:center;font-family:monospace;color:#58a6ff">10%</td>
+            <td style="padding:10px 12px;text-align:center;font-family:monospace;color:#3fb950">15%</td>
+            <td style="padding:10px 12px;text-align:center;font-family:monospace;color:#d29922">20%</td>
+          </tr>
+          <tr>
+            <td style="padding:10px 12px;font-weight:600;color:#e1e4e8">Income</td>
+            <td style="padding:10px 12px;color:#8b949e;font-size:12px">Dividend Yield · Payout Ratio↓</td>
+            <td style="padding:10px 12px;text-align:center;font-family:monospace;color:#58a6ff">0%</td>
+            <td style="padding:10px 12px;text-align:center;font-family:monospace;color:#3fb950">5%</td>
+            <td style="padding:10px 12px;text-align:center;font-family:monospace;color:#d29922">25%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="margin-top:10px;font-size:11px;color:#484f58">↓ = lower value is better (inverted in ranking) &nbsp;·&nbsp; AUTO = computed from price data, no input needed &nbsp;·&nbsp; Weights are starting points — adjust sliders on the Screener tab to match your client</div>
+  </div>
+
+  <div class="p-card">
+    <h3>Position Sizing — Inverse Volatility Weighting <span class="h3-sub">Step 7</span></h3>
+    <div style="background:#0f1117;border:1px solid #21262d;border-radius:7px;padding:14px;font-family:monospace;font-size:14px;color:#f0f6fc;margin-bottom:10px">
+      w<sub>i</sub> = ( 1 / σ<sub>i</sub> ) / Σ<sub>j</sub> ( 1 / σ<sub>j</sub> ) × stock sleeve %
+    </div>
+    <div style="font-size:12px;color:#484f58;line-height:1.8">
+      σ<sub>i</sub> = annualized volatility of stock i (auto-computed above)<br>
+      Riskier stocks automatically receive smaller position sizes. The formula is used as a <em>starting point</em> — apply hard caps after:<br><br>
+      <span style="color:#e1e4e8">Max single stock:</span> 5–8% of total portfolio<br>
+      <span style="color:#e1e4e8">Max single sector:</span> 25–30% (including ETF look-through weights)<br>
+      <span style="color:#e1e4e8">Number of stocks:</span> 15–25 (enough to diversify, few enough to research)<br>
+      <span style="color:#e1e4e8">Minimum position:</span> ~1% (smaller adds tracking work without impact)<br>
+      <span style="color:#e1e4e8">Stress test:</span> estimate portfolio loss in a 20% market decline ≈ portfolio beta × 20%
+    </div>
+  </div>
+
+  <div class="p-card">
+    <h3>Data Sources &amp; Bias Warnings</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:12px">
+      <div style="background:#0f1117;border:1px solid #21262d;border-radius:7px;padding:12px">
+        <div style="color:#3fb950;font-weight:700;margin-bottom:6px">Price data</div>
+        <div style="color:#8b949e;line-height:1.8">Fetched via <code style="color:#58a6ff">yfinance</code> and stored in <code style="color:#58a6ff">data/prices/</code>. Auto-adjusted for splits and dividends. Snapshot date: when <code style="color:#58a6ff">fetch_prices.py</code> was last run — re-run to refresh before ranking.</div>
+      </div>
+      <div style="background:#0f1117;border:1px solid #21262d;border-radius:7px;padding:12px">
+        <div style="color:#f0883e;font-weight:700;margin-bottom:6px">Bias warnings</div>
+        <div style="color:#8b949e;line-height:1.8"><strong style="color:#e1e4e8">Survivorship bias:</strong> approved list only contains securities that exist today — past failures excluded.<br><strong style="color:#e1e4e8">Look-ahead bias:</strong> only use financials that were public on the trade date.<br><strong style="color:#e1e4e8">Overfitting:</strong> don't tune weights until historical results look perfect.</div>
+      </div>
+      <div style="background:#0f1117;border:1px solid #21262d;border-radius:7px;padding:12px">
+        <div style="color:#58a6ff;font-weight:700;margin-bottom:6px">Fundamental data</div>
+        <div style="color:#8b949e;line-height:1.8">Pull from SEC EDGAR (free) at <code style="color:#58a6ff">sec.gov/cgi-bin/browse-edgar</code>, or Macrotrends / Wisesheets for formatted tables. Save snapshots with the date pulled so scores are reproducible.</div>
+      </div>
+      <div style="background:#0f1117;border:1px solid #21262d;border-radius:7px;padding:12px">
+        <div style="color:#d29922;font-weight:700;margin-bottom:6px">Rebalance schedule</div>
+        <div style="color:#8b949e;line-height:1.8">Re-run rankings every two weeks (fits the competition window). Sell/trim triggers: thesis breaks, score drops below 40th percentile in sector, position drifts more than 25% above target weight, or client constraint changes.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
 <!-- SCREENER -->
 <div id="panel-screener" style="display:none">
   <div class="screener-layout">
@@ -611,7 +843,7 @@ let currentRange = 365;
 // ── Tab ──────────────────────────────────────────────────────────────────────
 function switchTab(t) {
   activeTab = t;
-  ['stocks','etfs','bonds','screener','portfolio'].forEach((x,i) => {
+  ['stocks','etfs','bonds','screener','portfolio','methodology'].forEach((x,i) => {
     document.getElementById('panel-'+x).style.display = x===t?'':'none';
     document.querySelectorAll('.tab')[i].classList.toggle('active', x===t);
   });
